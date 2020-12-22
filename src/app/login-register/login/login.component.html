@@ -1,0 +1,32 @@
+<body class="login-page">
+    <main class="main_class">
+  
+      <form [formGroup]="loginForm" class="sign-in example-form" novalidate>
+        <div class="login-block">
+            <img src="https://img.icons8.com/bubbles/60/000000/books.png"/>
+          <h1 class="login_title">Books Management system Login</h1>
+          <!--field_one-->
+          <mat-form-field class="example-full-width-one" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" id="email"  formControlName="email" placeholder="Email">
+          </mat-form-field>
+          <!--field two-->
+          <mat-form-field class="example-full-width-one" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput id="password" placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text' " />
+            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;color: #092041 !important;">
+              {{hide ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+          </mat-form-field>
+          <!--submit button-->
+          <button mat-raised-button color="primary" class="mat-raised-button mat-primary submit" type="submit" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+          <!-- <div class="links_section">
+            <span class="new_acc">
+              Forgot Password?
+            </span>
+            </div> -->
+        </div>
+      </form> <br>
+      <h1 *ngIf="msg" style="color: red;text-align: center;">{{msg}}</h1>
+    </main>
+  </body>
